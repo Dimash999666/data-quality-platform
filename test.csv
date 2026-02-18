@@ -1,0 +1,6 @@
+id,name,age,salary,email
+1,Alice,25,50000,alice@mail.com
+2,Bob,,60000,bob@mail.com
+3,Charlie,300,55000,charlie@mail.com
+4,Alice,25,50000,alice@mail.com
+5,Diana,30,-5000,diana@mail.com

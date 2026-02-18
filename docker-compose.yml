@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: postgres:15-alpine
+    container_name: quality_db
+    environment:
+      POSTGRES_DB: quality_db
+      POSTGRES_USER: quality_user
+      POSTGRES_PASSWORD: quality_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quality_user -d quality_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: quality_backend
+    environment:
+      DATABASE_URL: postgresql://quality_user:quality_pass@db:5432/quality_db
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      MAX_FILE_SIZE_MB: 100
+      UPLOAD_DIR: /data/uploads
+    ports:
+      - "8000:8000"
+    volumes:
+      - uploads_data:/data/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: quality_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  uploads_data:

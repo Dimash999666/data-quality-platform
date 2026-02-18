@@ -1,0 +1,152 @@
+# ============================================
+# SECRETS AND ENVIRONMENT (КРИТИЧНО!)
+# ============================================
+.env
+*.env
+backend/.env
+frontend/.env
+.env.local
+.env.*.local
+
+# ============================================
+# PYTHON
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.virtualenv
+
+# PyCharm
+.idea/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ============================================
+# NODE / FRONTEND
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# Frontend build
+frontend/build/
+frontend/dist/
+frontend/.next/
+frontend/out/
+
+# ============================================
+# DATABASE
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+
+# PostgreSQL
+*.sql.gz
+*.dump
+
+# ============================================
+# DATA FILES (USER UPLOADS)
+# ============================================
+data/uploads/*.csv
+data/uploads/*.xlsx
+data/uploads/*.xls
+data/uploads/*.json
+data/uploads/*.txt
+
+# Но оставляем структуру папок
+!data/uploads/.gitkeep
+
+# ============================================
+# DOCKER
+# ============================================
+*.log
+docker-compose.override.yml
+
+# ============================================
+# OS
+# ============================================
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# ============================================
+# IDE / EDITORS
+# ============================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ============================================
+# TEMPORARY FILES
+# ============================================
+*.tmp
+*.bak
+*.orig
+*.rej
+*.swp
+.cache/
+
+# ============================================
+# PROJECT SPECIFIC
+# ============================================
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
